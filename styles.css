@@ -1,0 +1,48 @@
+/* Measure against the normal line height, even where the theme collapses
+   the blank line below a heading to line-height: 0. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-editor .cm-content > .cm-line.inplace-native-gap {
+  --inplace-row-height: calc(1em * var(--inplace-typography-line-height, var(--line-height-normal, 1.5)));
+  --inplace-small-gap: var(--inplace-typography-paragraph, calc(0.5 * var(--inplace-row-height)));
+  box-sizing: border-box;
+  --inplace-gap-height: var(--inplace-row-height);
+  height: var(--inplace-gap-height) !important;
+  min-height: 0 !important;
+  padding-block: 0 !important;
+}
+
+/* Match the browser's caret/selection line box to the painted gap. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-editor .cm-content > .cm-line.inplace-native-gap[data-inplace-gap] {
+  line-height: var(--inplace-gap-height) !important;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-editor .cm-content > .cm-line.inplace-native-gap[data-inplace-gap="half"] {
+  --inplace-gap-height: var(--inplace-small-gap);
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-editor .cm-content > .cm-line.inplace-native-heading-gap {
+  --inplace-small-gap: calc(0.38 * var(--inplace-row-height));
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-editor .cm-content > .cm-line.inplace-native-draft {
+  line-height: var(--inplace-typography-line-height, var(--line-height-normal, 1.5)) !important;
+  min-height: calc(1em * var(--inplace-typography-line-height, var(--line-height-normal, 1.5))) !important;
+  padding-block: 0 !important;
+}
+
+/* Chromium paints selected BRs using glyph metrics, which can spill out of
+   a half row or leave holes in a taller row. Paint those rows to their bounds. */
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > .cm-line.inplace-native-gap::selection,
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > .cm-line.inplace-native-gap *::selection {
+  background-color: transparent !important;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > .cm-line.inplace-native-gap.inplace-native-gap-selected {
+  background-image: linear-gradient(var(--text-selection), var(--text-selection));
+  background-size: max(3px, 0.28em) 100%;
+  background-position: left top;
+  background-repeat: no-repeat;
+}
+
+.markdown-source-view.mod-cm6.is-live-preview .cm-content > .cm-line.inplace-native-gap.inplace-native-gap-selected[dir="rtl"] {
+  background-position: right top;
+}

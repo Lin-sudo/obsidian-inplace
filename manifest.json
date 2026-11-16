@@ -1,0 +1,9 @@
+{
+  "id": "obsidian-inplace",
+  "name": "Obsidian Inplace Markdown",
+  "version": "0.3.4",
+  "minAppVersion": "1.5.0",
+  "description": "Compact paragraph gaps and skip separator rows in Obsidian Live Preview.",
+  "author": "Lin-sudo",
+  "isDesktopOnly": true
+}

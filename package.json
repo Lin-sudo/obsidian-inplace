@@ -1,0 +1,23 @@
+{
+  "name": "obsidian-inplace",
+  "version": "0.3.4",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit && node esbuild.mjs",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:obsidian": "node tests/obsidian.mjs"
+  },
+  "dependencies": {
+    "@codemirror/language": "^6",
+    "@codemirror/state": "^6",
+    "@codemirror/view": "^6"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "esbuild": "^0.25",
+    "obsidian": "^1",
+    "playwright-core": "^1",
+    "tsx": "^4",
+    "typescript": "^5"
+  }
+}
